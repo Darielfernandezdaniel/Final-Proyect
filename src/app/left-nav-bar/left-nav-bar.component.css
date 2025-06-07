@@ -1,0 +1,149 @@
+.leftNavBar {
+    width: 250px;
+    height: 100%;
+    box-shadow: 0 10px 15px 3px rgba(0, 0, 0, 0.1),
+                0 4px 6px 4px rgba(0, 0, 0, 0.1);    
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    padding-top: 30px;
+    padding-left: 10px;
+    overflow: hidden;
+    position: fixed;
+    top: 70px;
+    left: 0;
+    z-index: 900;
+    transition: width 0.1s;
+    background-color: var(--color-Principal-Blanco);
+}
+
+.leftNavBar a {
+    text-decoration: none;
+    list-style: none;
+    color: white;
+}
+
+.leftNavBarClosed{
+    height: 100vh;
+    top: 70px;
+    box-shadow: 0 10px 15px 3px rgba(0, 0, 0, 0.1),
+                0 4px 6px 4px rgba(0, 0, 0, 0.1);    
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    padding-top: 30px;
+    padding-left: 4px;
+    overflow: hidden;
+    position: fixed;
+    z-index: 900;
+    width: 70px;
+    transition: width 0.1s;
+    background-color: white;
+}
+
+.leftNavBarClosedInUserPage{
+    height: 100vh;
+    top: 70px;
+    box-shadow: 0 10px 15px 3px rgba(0, 0, 0, 0.1),
+                0 4px 6px 4px rgba(0, 0, 0, 0.1);    
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    padding-top: 30px;
+    padding-left: 4px;
+    overflow: hidden;
+    position: fixed;
+    z-index: 900;
+    width: 0px;
+    transition: width 0.1s;
+    background-color: white;
+}
+
+.leftNavBarClosed .leftNavBarButton{
+    background-color: var(--color-Principal-Blanco);
+    width: 60px;
+    height: 60px; /* Altura fija consistente */
+    min-height: 60px; /* Asegurar altura mínima */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start; /* Mantener alineación a la izquierda */
+    gap: 25px;
+    color: white;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    padding-left: 10px; /* Restaurar padding para mantener posición */
+    border-radius: 50%; /* Circular cuando está cerrado */
+    position: relative;
+    background-color: rgba(var(--color-Principal-negro), 1);
+    transition: font-size 0.5s, background-color 0.5s;
+}
+
+.leftNavBarClosed .leftNavBarButton::after{
+    display: none;
+}
+
+.BlackVeil{
+    width: calc(100vw - 250px);
+    height: 100vh;
+    background-color: rgb(0, 0, 0, 0.4);
+    z-index: 880;
+    right: 0;
+    position: absolute;
+}
+
+.leftNavBarButton{
+    width: 100%;
+    height: 60px; /* Altura fija en lugar de porcentaje */
+    min-height: 60px; /* Asegurar altura mínima */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 25px;
+    background-color: rgba(var(--color-Principal-negro), 1);
+    color: white;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    padding-left: 10px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    position: relative;
+    transition: font-size 0.5s, background-color 0.5s;
+   
+}
+
+.leftNavBarButton:hover{
+    font-size: 22px;
+    background-color: rgba(var(--color-Principal-negro), 0.8);
+}
+
+.leftNavBarButton::after{
+    content: "";
+    background-color: rgba(var(--color-Principal-negro), 1);
+    position: absolute;
+    width: 40px;
+    height: 45px;
+    left: 94.5%;
+    top: 100%;
+    background-color: rgba(var(--color-Principal-negro), 1);
+    clip-path: polygon(50% 0%, 83% 12%, 100% 42%, 100% 100%, 81% 67%, 63% 48%, 46% 30%, 26% 17%, 0 0);
+    transition: background-color 0.5s;
+}
+
+.leftNavBarButton:hover::after{
+    background-color: rgba(var(--color-Principal-negro), 0.8);
+}
+
+.leftNavBarButton img{
+    width: 40px;
+    height: 40px; /* Hacer el contenedor cuadrado */
+    object-fit: cover; /* Mantiene proporción y recorta si es necesario */
+    object-position: center; /* Centra la imagen */
+    background-color: var(--color-Principal-Blanco);
+    border-radius: 50%;
+}
+
+

@@ -1,0 +1,27 @@
+<nav class="NavigationBar">
+    
+    <div class="NavigationBarLeft">
+        <img src="/assets/pequeños_iconos/barra-de-menus.png" loading="lazy" alt="Lupa" (click)="onClickChange()">
+    
+            <label for="searchTool" class="searchTool">
+                <img src="/assets/pequeños_iconos/Lupa.png" alt="">
+                <input type="search" name="search" id="searchTool"  placeholder="Dont Use">
+            </label>
+    </div>
+
+    <div class="NavigationBarRigth">
+        
+        <img src="assets/pequeños_iconos/perfil.gif" alt="ProfileIcon" *ngIf="!isLoggedIn">
+        <img [src]="profilePhoto || 'assets/pequeños_iconos/perfil-del-usuario.png'" alt="ProfileIcon" *ngIf="isLoggedIn">
+        <div class="FormButton" *ngIf="!isLoggedIn"><strong>
+            <a [routerLink]="['/register', 'login']">Login</a></strong>
+        </div>
+        <div class="FormButton" *ngIf="!isLoggedIn">       
+            <strong><a [routerLink]="['/register', 'join']">Join</a></strong>
+        </div>
+        <div class="FormButton" *ngIf="isLoggedIn" (click)="logOut()">       
+            <strong>LogOut</strong>
+        </div>
+    </div>
+
+</nav>

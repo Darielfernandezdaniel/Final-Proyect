@@ -1,0 +1,45 @@
+.bottomBar{
+    width: 100vw;
+    height: 80px;
+    background-color: var(--color-Principal-Blanco);
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    box-shadow: 0 -10px 15px 3px rgba(0, 0, 0, 0.1),
+                0 -4px 6px 4px rgba(0, 0, 0, 0.1); 
+                z-index: 900;
+}
+
+.CoupleButton{
+    width: 300px;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.CoupleButton div{
+    width: 100px;
+    height: 60%;
+    border: 1px solid rgba(var(--color-Principal-negro), 1);
+    color: var(--color-Principal-Blanco);
+    background-color: rgba(var(--color-Principal-negro), 1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    font-size: 19px;
+    transition: all 0.5s ease;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.CoupleButton div:hover{
+    font-size: 22px;
+    font-weight: bolder;
+}

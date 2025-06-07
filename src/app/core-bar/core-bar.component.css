@@ -1,0 +1,151 @@
+.coreBar{
+    width: 98%;
+    height: 70px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 35px;
+    border: 1px solid rgba(var(--color-Principal-negro), 1);
+    font-weight: bolder;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 10px;
+    background: linear-gradient(
+                90deg,
+                #FF6B00 0%,
+                #FF8C00 25%,
+                #FFA500 50%,
+                #FFD700 100%
+            );
+    box-shadow: 0 8px 20px rgba(255, 107, 0, 0.3);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+.coreBar::before {
+    content: '';
+     position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255, 255, 255, 0.2),
+                transparent
+            );
+    transform: skewX(-45deg);
+    animation: brillo 3s infinite;
+}
+
+      
+.coreBar::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 5%;
+    width: 90%;
+    height: 20px;
+    background: rgba(255, 165, 0, 0.4);
+    border-radius: 50%;
+    filter: blur(10px);
+    z-index: -1;
+}
+
+.upgradeButton{
+    border: 1px solid rgba(var(--color-Principal-negro), 1);
+    border-radius: 10px;
+    height: 80%;
+    width: 140px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    font-size: 80%;
+    transition: all 0.8s ease;
+    white-space: nowrap;
+    position: relative;
+}
+
+.upgradeButton:hover{
+    height: 90%;
+    width: 160px;
+    font-size: 90%;
+    cursor: pointer;
+    background: linear-gradient();
+    text-overflow: ellipsis;
+}
+
+.decoracion {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+        
+.circulo {
+    position: absolute;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+        
+        .circulo:nth-child(1) {
+            width: 30px;
+            height: 30px;
+            top: 10px;
+            left: 15%;
+        }
+
+        .circulo:nth-child(2) {
+            width: 20px;
+            height: 20px;
+            bottom: 15px;
+            left: 25%;
+        }
+        
+        .circulo:nth-child(3) {
+            width: 40px;
+            height: 40px;
+            top: 50%;
+            right: 10%;
+            transform: translateY(-50%);
+        }
+        
+        .circulo:nth-child(4) {
+            width: 15px;
+            height: 15px;
+            bottom: 5px;
+            right: 20%;
+        }
+        
+        @keyframes brillo {
+            0% {
+                left: -100%;
+            }
+            100% {
+                left: 100%;
+            }
+        }
+
+    @media (max-width: 560px){
+        .PromotionalBar{
+            font-size: 12px;
+        }
+
+        .upgradeButton{
+            font-size: 12px;
+        }
+        
+        .coreBar{
+            gap: 3px;
+        }
+    }

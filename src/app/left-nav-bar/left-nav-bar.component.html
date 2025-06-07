@@ -1,0 +1,7 @@
+<div [ngClass]="toggleValue ? 'BlackVeil' : 'BlackVeilClosed'" (click)="onClickChange()"></div>
+<div [ngClass]="toggleValue ? 'leftNavBar' : 'leftNavBarClosed'">
+     <a [routerLink]="['/home']"><div class="leftNavBarButton Home"><img src="assets/pequeños_iconos/hogar.blanco.png" alt="Home Icon" loading="lazy">Home</div></a>
+     <a [routerLink]="['/UserPage']"><div class="leftNavBarButton UserPage"><img src="assets/pequeños_iconos/perfil-del-usuario.png" alt="Icono de Perfil" loading="lazy">
+       UserPage</div></a>
+    <div class="leftNavBarButton Generate"><img src="assets/pequeños_iconos/estrellas.png" alt="estrellas moradas" loading="lazy">Dream Up IA</div>
+</div>

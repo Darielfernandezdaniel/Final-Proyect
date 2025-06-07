@@ -1,0 +1,28 @@
+<div class="ButtonBack ButtonMove" [style.visibility]="showLeftButton ? 'visible' : 'hidden'" (click)="scrollLeft()">
+    <img src="assets/pequeños_iconos/flecha-correcta.png" alt="">
+</div>
+ 
+<div #genderContainer class="genderContainer" (scroll)="scrollObserver()">
+    <div><span>All</span></div>
+    <div><span>Theatre</span></div>
+    <div><span>AI Art</span></div>
+    <div><span>Digital Art</span></div>
+    <div><span>Fan Art</span></div>
+    <div><span>Photography</span></div>
+    <div><span>Fantasy</span></div>
+    <div><span>Anime and Manga</span></div>
+    <div><span>Cosplay</span></div>
+    <div><span>Adoptables</span></div>
+    <div><span>Character Design</span></div>
+    <div><span>Comics</span></div>
+    <div><span>Concept Art</span></div>
+    <div><span>Game Art</span></div>
+    <div><span>Science Fiction</span></div>
+    <div><span>Superheroes</span></div>
+    <div><span>Traditional Art</span></div>
+    <div><span>3D Art</span></div>
+</div>
+ 
+<div class="Buttonpush ButtonMove" [style.visibility]="showRightButton ? 'visible' : 'hidden'" (click)="scrollRight()">
+    <img src="assets/pequeños_iconos/flecha-correcta.png" alt="">
+</div>

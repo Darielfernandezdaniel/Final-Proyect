@@ -1,0 +1,107 @@
+<app-nav-bar></app-nav-bar>
+<app-left-nav-bar></app-left-nav-bar>
+<div class="BlackVeilModal" *ngIf="isModalOpen"></div>
+        <div class="modal" *ngIf="isModalOpen">
+            <div *ngIf = "typeModal === 'createAlbum' || 'DeleteAlbum'" class="createAlbumModal">
+                <div class="modal-content">
+                    
+                    <label for="titleCollector" *ngIf = "typeModal === 'createAlbum'">{{modalObjective}} Album Title
+                        <input type="text" placeholder="Title Here" [(ngModel)]="albumTitle" class="titleCollector" name="titleCollector"/>
+                    </label>
+                    <div *ngIf = "typeModal === 'DeleteAlbum'">Are You sure to Delete de Album <strong>{{albumTitle}}</strong></div>
+                    
+                    <div class="buttonModalContainer" >
+                        <button (click)="saveAlbum()">Ok</button>
+                        <button (click)="closeModal('closeAlbum')">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <div class="UserPageComponent">
+        
+        <div class="bannerArea">
+            <img [src]="previewUrlCover || defaultCoverImage" alt="Cover Image" class="cover-image">
+            <div class="imgLogIconCover" (click)="triggerFileInput('cover')">
+                <div class="custom-file-upload">
+            <img src='assets/pequeños_iconos/formato-de-archivo.png' alt="">
+            Upload Cover
+        </div>
+    </div>
+</div>
+
+
+<input #coverFileInput id="coverFileInput" type="file"  style="display: none !important;"  (change)="handleFileChange($event, 'cover')"  accept="image/*" 
+/>
+        
+        <div class="UserPageDataContainer">
+           <div class="UserPageDataArea">
+                <img [src]="previewUrl || defaultProfileImage" alt="Cover Image" class="cover-image" (click)="triggerFileInput('profile')">
+
+                <input  #profileFileInput  type="file"  style="display: none !important;"  (change)="handleFileChange($event, 'profile')"  accept="image/*" 
+                />
+           <div>
+                <p>{{nickname}}</p>
+                <p>Creador</p>
+           </div>
+            <div class="createAlbum optionButtons" (click)="openModal('createAlbum')">
+                <div>CreateAlbum</div>
+            </div>
+           <div class="albumData">
+                <div class="albumCounter"><span>{{ albums.length }}</span><p>Albumns</p></div>
+           </div>
+        </div> 
+        
+         <div class="custom-modal" *ngIf="modalImg">
+
+    <div class="BlackVeilModal2" *ngIf=" modalImg"></div>
+  <div class="custom-modal-content">
+    
+    <h2>Subir Imagen</h2>
+    <div class="drag-area"
+         (dragover)="$event.preventDefault()"
+         (dragenter)="onDragEnter()"
+         (dragleave)="onDragLeave()"
+         (drop)="onDrop($event)"
+         [class.dragging]="isDragging"
+         (click)="fileInput.click()">
+         <app-spinner *ngIf="spinnerStatus"></app-spinner>
+         <div *ngIf="previewUrlAlbum" class="preview-container">
+            <img [src]="previewUrlAlbum" alt="Preview" class="preview-image">
+        </div>
+      <p *ngIf="!selectedFile && !spinnerStatus">Arrastra aquí 
+        <br>o <br> 
+        clic para seleccionar</p>
+      <input type="file" #fileInput hidden (change)="onFileSelected($event)" />
+    </div>
+    <div class="modal-buttons">
+
+      <button (click)="uploadImage()">Subir Imagen</button>
+      <button (click)="closeModal('closeImg')">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+    </div>
+
+    <div class="userPageAlbumArea" >
+           <div class="GridAlbumSpace">
+            <div *ngFor="let album of albums" class="albumBox">
+                <img [src]="getFirstImage(album)" class="CoverAlbum" (click)="navigateToAlbum(album.id!)" loading="lazy"/>
+
+                
+                <div class="secondABox">
+                    <div class="albumTitle">{{ album.id }}</div>
+                    <div>
+                        <div (click) = "openModal('modalImg', album.id, album.title)" class = "buttonAddImg">
+                            <div class="horizontal"></div>
+                            <div class="vertical"></div>
+                        </div>
+                        <div class="buttonAddImg2" (click)="openModal('DeleteAlbum',  album.title)">
+                            <img src="assets/pequeños_iconos/compartimiento.png" alt="" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+     </div>

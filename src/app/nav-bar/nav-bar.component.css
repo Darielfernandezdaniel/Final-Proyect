@@ -1,0 +1,133 @@
+.NavigationBar {
+    width: 100vw;
+    height: 80px;
+    padding-left: 7px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-Principal-Blanco);  
+    border-bottom: 2px solid var(--color-Principal-negro);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+                0 4px 6px -4px rgba(0, 0, 0, 0.1);  
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+}
+
+.NavigationBarLeft{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+    gap: 15px;
+}
+
+.NavigationBarLeft img{
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.searchTool{
+    border: 1px  solid black;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 
+                0 4px 6px -4px rgba(0, 0, 0, 0.4); 
+    border-radius: 20px;
+    height: 50%;
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    transition: box-shadow 0.5s, border 0.2s;
+}
+
+.searchTool img{
+    height: 100%;
+    width: 30px;
+}
+
+.searchTool:focus-within {
+  border: 2px solid rgba(var(--color-Principal-negro), 1); 
+  box-shadow: 0 0 5px rgba(var(--color-Principal-negro), 0.9); 
+}
+
+.searchTool input{
+    width: 80%;
+    height: 100%;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border: none;
+    outline: none;
+}
+
+.NavigationBarRigth{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items:center;
+    justify-content: flex-end;
+    gap: 10px;
+    padding-right: 5px;
+}
+
+.NavigationBarRigth div{
+    position: relative;
+    min-width: 60px;
+    width: 120px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    overflow: hidden;
+    background-color: rgba(var(--color-Principal-negro), 1);
+    color: white;
+}
+
+.NavigationBarRigth div:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+    font-size: 19px;
+}
+
+.NavigationBarRigth div::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.4),
+        transparent);
+        transition: 0.5s;
+}
+
+.NavigationBarRigth div:hover::before {
+    left: 125%;
+}
+
+.NavigationBarRigth img{
+    width: 50px;
+    height: 50px;
+    border-radius:50%;
+}
+
+.FormButton a{
+    text-decoration: none;
+    list-style: none;
+    color: var(--color-Principal-Blanco);
+}

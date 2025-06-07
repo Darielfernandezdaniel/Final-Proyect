@@ -1,0 +1,89 @@
+.genderContainer{
+    width: 98%;
+    height: 65px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--White-color);
+    gap: 5px;
+    background-color: var(--color-Principal-Blanco);
+    overflow: auto;
+    scroll-behavior: smooth;
+    left: 2.5%;
+}
+
+.genderContainer div{
+    background-color: rgba(var(--color-Principal-negro), 0.9);
+    color: var(--White-color);
+    width: 150px;
+    height: 35px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.47);
+    color: var(--color-Principal-Blanco);
+    transition: all 0.5s ease;
+}
+
+.genderContainer div:hover{
+   transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+    font-size: 22px;
+}
+
+.genderContainer div span{
+    width: 100%;
+    height: 100%;
+    font-size: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+    padding: 5px;
+}
+
+.ButtonMove{
+    width: 45px;
+    height: 65px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 6000;
+    background-color: rgba(var(--Secondary-color2), 0.9);
+    border-radius: 20%;
+    cursor: pointer;
+    user-select: none;
+    background-color: var( --color-Principal-Blanco);
+    opacity: 0.8;
+}
+
+.ButtonMove:hover{
+    width: 50px;
+}
+
+.ButtonMove img{
+    width: 100%;
+    height: 70%;
+}
+
+.Buttonpush{
+    right: 0px;
+    top: 0px;
+}
+
+.ButtonBack img{
+    transform: rotate(180deg);
+}
+
+.ButtonMove[style*="visibility: hidden"] {
+    visibility: hidden !important;
+}
+
+@media (min-width:1550px){
+    .ButtonMove{
+        display: none;
+    }
+}

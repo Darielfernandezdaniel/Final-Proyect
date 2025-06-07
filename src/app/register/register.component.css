@@ -1,0 +1,593 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.body {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+}
+
+.formComponent {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: white;
+    position: relative;
+}
+
+.leftForm {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.leftForm h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    flex-shrink: 0;
+}
+
+.leftForm p {
+    width: 50%;
+    font-size: 25px;
+    line-height: 1.6;
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.leftForm img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+.rightForm {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+    overflow-y: auto;
+    position: relative;
+    justify-content: space-between;
+}
+
+.rightForm::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(0, 0, 0, 0.3),
+        transparent
+    );
+    transition: left 0.5s, width 0.5s;
+}
+
+.rightForm h2 {
+    width: 100%;
+    min-height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 36px;
+    margin-bottom: 30px;
+    flex-shrink: 0;
+}
+
+app-spinner {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.anotherValidation {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    min-height: 250px;
+    margin-bottom: 10px;
+    flex-shrink: 1;
+}
+
+.DivitionLine {
+    width: 100%;
+    padding-top: 10px;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Cambiado de space-between a center */
+    margin: 20px 0; 
+    flex: 1;
+}
+
+.DivitionLine div {
+    flex: 1; /* Cada línea toma el mismo espacio disponible */
+    height: 2px;
+    background-color: #000000; /* Cambiado de black a gris más suave */
+    max-width: 44%;
+}
+
+.DivitionLine p {
+    margin: 0;
+    padding: 0 10px;
+    color: #000000;
+    font-size: 14px;
+    font-weight: 500;
+    white-space: nowrap; /* Evita que el texto se rompa */
+    flex-shrink: 0; /* Evita que el texto se comprima */
+}
+
+.buttonValidation {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    min-height: 60px;
+    padding: 12px 20px;
+    border: 2px solid #ddd;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    cursor: pointer;
+    flex-shrink: 0;
+    position: relative;
+}
+
+.buttonValidation:hover {
+    min-height: 65px;
+    font-size: 18px;
+    border-color: #333;
+    transform: translateY(-1px);
+}
+
+.validationIcon {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    margin-right: 10px;
+}
+
+.buttonValidation p {
+    margin: 0;
+    flex: 1;
+    text-align: center;
+    margin-right: 34px;
+}
+
+.FirstFormJoin, .FirstFormLogin {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 20px;
+    font-size: 18px;
+    flex: 1;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+/* Contenedor superior */
+.topSection {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex-shrink: 0;
+}
+
+/* Contenedor inferior */
+.bottomSection {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    flex-shrink: 0;
+}
+
+label {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    font-weight: 500;
+    color: #333;
+    font-size: 16px;
+}
+
+input {
+    min-height: 0px;
+    width: 100%;
+    padding: 12px 16px;
+    margin-top: 4px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    min-height: 80px;
+}
+
+input:hover,
+input:focus {
+    border-color: #333;
+    outline: none;
+}
+
+.buttonNext {
+    width: 100%;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    background-color: #333;
+    color: white;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+    margin-top: 10px;
+}
+
+.buttonNext:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+    font-size: 22px;
+}
+
+.buttonNext::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.1),
+        transparent
+    );
+    transition: 0.5s;
+}
+
+.buttonNext:hover::before {
+    left: 100%;
+}
+
+.buttonChangeContainer {
+    width: 95%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.buttonChangeContainerLogin {
+    width: 95%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.buttonChangeContainerLogin p {
+    font-size: 22px;
+}
+
+.switchButtonContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.buttonChangeContainer p {
+    font-size: 22px;
+}
+
+.buttonParamValueChange {
+    display: flex;
+    justify-content: center;
+    width: 125px;
+    height: 50px;
+    background-color: #ccc;
+    border-radius: 25px;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.ballInsideParamValueChange {
+    width: 45px;
+    height: 45px;
+    background-color: white;
+    border-radius: 50%;
+    left: 2px;
+    position: absolute;
+    transition: left 0.3s;
+}
+
+.input-error {
+    border: 2px solid red;
+}
+
+/* NUEVAS REGLAS CSS DINÁMICAS - REEMPLAZAN LAS ANTERIORES */
+.switchButtonContainer .buttonParamValueChange.switch-active {
+    background-color: #4caf50;
+}
+
+.switchButtonContainer .ballInsideParamValueChange.ball-active {
+    left: 63%;
+}
+
+.rightForm.form-active::before {
+    left: 100%;
+    width: 0%;
+}
+
+/* REGLAS PARA EL SEGUNDO SWITCH */
+.switchButtonContainer2 .buttonParamValueChange2.switch-active {
+    background-color: #4caf50;
+}
+
+.switchButtonContainer2 .ballInsideParamValueChange2.ball-active {
+    left: 2px;
+}
+
+/* COMENTADAS LAS REGLAS ANTERIORES QUE NO FUNCIONABAN
+#switchToggle:checked ~ .switchButtonContainer .buttonParamValueChange {
+    background-color: #4caf50;
+}
+
+#switchToggle:checked ~ .switchButtonContainer .ballInsideParamValueChange {
+    left: 63%;
+}
+
+.rightForm:has(#switchToggle:checked)::before {
+    left: 100%;
+    width: 0%;
+}
+*/
+
+.switchButtonContainer.login-active .buttonParamValueChange {
+    background-color: #4caf50;
+}
+
+.ballInsideParamValueChange.ball-active {
+    left: 63%;
+}
+
+.rightForm.form-active::before {
+    left: 100%;
+    width: 0%;
+}
+
+.checkedButton {
+    width: 20px;
+    height: 20px;
+}
+
+/* Estilos para mensajes de error */
+.error {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+    width: 100%;
+}
+
+/* Estilos para Angular Material */
+mat-form-field {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+/* Estilos para checkbox */
+.keepMeCheckedLabel {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+.keepMeCheckedLabel p {
+    height: 15px;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #333;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.buttonChangeContainer2 {
+   width: 95%;
+   height: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   gap: 20px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.questionText2 {
+   font-size: 22px;
+}
+
+.switchButtonContainer2 {
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items: center;
+   gap: 10px;
+   font-weight: bold;
+   font-family: Arial, Helvetica, sans-serif;
+  font-size: 22px;
+}
+
+.buttonParamValueChange2 {
+   display: flex;
+   justify-content: center;
+   width: 125px;
+   height: 50px;
+   background-color: #ccc;
+   border-radius: 25px;
+   position: relative;
+   cursor: pointer;
+   transition: background-color 0.3s;
+}
+
+.ballInsideParamValueChange2 {
+   width: 45px;
+   height: 45px;
+   background-color: white;
+   border-radius: 50%;
+   left: 63%;
+   position: absolute;
+   transition: left 0.3s;
+   top: 2.5px;
+}
+
+/* COMENTADAS LAS REGLAS ANTERIORES QUE NO FUNCIONABAN
+#switchToggle2:checked ~ .switchButtonContainer2 .buttonParamValueChange2 {
+   background-color: #4caf50;
+}
+
+#switchToggle2:checked ~ .switchButtonContainer2 .ballInsideParamValueChange2 {
+   left: 2px;
+}
+*/
+
+/* Responsive */
+@media (max-width: 965px) {
+    .formComponent {
+        width: 100vw;
+        height: 100vh;
+    }
+    
+    .textOfAbove {
+        padding: 30px;
+    }
+}
+
+@media (max-height: 776px) {
+    .formContainer {
+        width: 100%;
+        height: 100%;
+    }
+
+    .leftForm p {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 656px) {
+    
+    .leftForm p {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 590px) {
+    .buttonChangeContainer p {
+        font-size: 14px;
+    }
+
+    .buttonParamValueChange {
+        width: 70px;
+        height: 40px;
+    }
+
+    .ballInsideParamValueChange {
+        width: 35px;
+        height: 35px;
+    }
+
+    /* ACTUALIZADA LA REGLA RESPONSIVE PARA USAR CLASES DINÁMICAS */
+    .switchButtonContainer .ballInsideParamValueChange.ball-active {
+        left: 53%;
+    }
+
+    .buttonChangeContainer2 p {
+        font-size: 14px;
+    }
+
+    .buttonParamValueChange2 {
+        width: 70px;
+        height: 40px;
+    }
+
+    .ballInsideParamValueChange2 {
+        width: 35px;
+        height: 35px;
+        margin-left: -5px ;
+    }
+
+    .switchButtonContainer2 {
+        gap: 0px;
+    }
+
+    /* ACTUALIZADA LA REGLA RESPONSIVE PARA USAR CLASES DINÁMICAS */
+    .switchButtonContainer2 .ballInsideParamValueChange2.ball-active {
+        left: 10%;
+    }
+}

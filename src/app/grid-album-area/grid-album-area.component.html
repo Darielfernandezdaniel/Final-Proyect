@@ -1,0 +1,45 @@
+<div class="album-container" (scroll)="onScroll($event)">
+  <div class="album-header">
+  </div>
+
+  <!-- Grid de imágenes -->
+  <div class="images-grid">
+    <div 
+      *ngFor="let imageData of images; let i = index" 
+      class="image-item"
+    >
+
+      <a [routerLink] = "['/albumView', imageData.albumTitle, imageData.nickname,]"><img 
+        [src]="imageData.url" 
+        [alt]="'Imagen ' + (i + 1)"
+        (error)="onImageError($event)"
+        class="album-image"
+        loading="lazy"
+      />
+      
+      <div class="image-info">
+        <p class="image-title">{{ imageData.albumTitle }}</p>
+        <p class="upload-date">{{ formatUploadDate(imageData.uploadedAt) }}</p>
+      </div>
+    
+
+      <!-- Overlay para click -->
+      <div class="image-overlay">
+        <span class="view-icon">👁️</span>
+      </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- Botón para cargar más -->
+  <div *ngIf="hasMorePages && !isLoading" class="load-more-container">
+    <button (click)="loadMoreImages()" class="load-more-btn">
+      Cargar más imágenes
+    </button>
+  </div>
+
+  <!-- Mensaje cuando no hay más imágenes -->
+  <div *ngIf="!hasMorePages && images.length > 0" class="no-more-images">
+    <p>No hay más imágenes para mostrar</p>
+  </div>
+</div>

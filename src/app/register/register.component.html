@@ -1,0 +1,162 @@
+<app-spinner *ngIf="loginComplet"></app-spinner>
+<div class="body">
+    <div class="formComponent">
+        <div class="leftForm">
+            <h2>
+                {{FormTitle}}
+            </h2>
+            <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatem unde omnis, quia ducimus numquam recusandae quod distinctio! Tenetur, facilis quisquam blanditiis repudiandae esse, sit aliquid excepturi assumenda quis minus quae!
+            </p>
+            <img src="" alt="">
+            <p> Earn and win Art</p>
+        </div>
+        <div class="rightForm" [ngClass]="{'form-transition': paramValue === 'login'}">
+            <h2>{{paramValue | uppercase}}</h2>
+            <div class="anotherValidation">
+                <div class="buttonValidation">
+                    <img class="validationIcon" loading="lazy" src="assets/pequeños_iconos/google.png" alt="">
+                    <p>Google</p>
+                </div>
+                <div class="buttonValidation">
+                    <img class="validationIcon" loading="lazy" src="assets/pequeños_iconos/facebook.png" alt="">
+                    <p>Facebook</p>
+                </div>
+                <div class="buttonValidation">
+                    <img class="validationIcon" loading="lazy" src="assets/pequeños_iconos/logotipo-de-apple.png" alt="">
+                    <p>Apple</p>
+                </div>
+            </div>
+
+            <div class="DivitionLine">
+                <div></div>
+                <p>or</p>
+                <div></div>
+            </div>
+
+            <!-- FORMULARIO DE REGISTRO - PRIMERA PARTE -->
+            <form [formGroup]="joinForm" class="FirstFormJoin" *ngIf="paramValue === 'join' && firstPartOfForm === 'FirstPart'" (ngSubmit)="withEmailAndPassword()">
+                <label for="email">Email:
+                    <input type="email" id="email" formControlName="email" placeholder="Email..."
+                     [ngClass]="{'input-error': joinForm.get('email')?.invalid && joinForm.get('email')?.touched}"
+                    />
+                </label>
+                
+                <div *ngIf="joinForm.get('email')?.invalid && joinForm.get('email')?.touched" class="error">
+                    <span *ngIf="joinForm.get('email')?.errors?.['required']">Email is required.</span>
+                    <span *ngIf="joinForm.get('email')?.errors?.['email']">Invalid email format.</span>
+                    <span *ngIf="joinForm.get('email')?.errors?.['emailInUse']">This email is already in use. Please Login to your Account</span>
+                </div>
+
+                <label for="password">Password:
+                    <input type="password" id="password" formControlName="password" placeholder="Password..."
+                    [ngClass]="{'input-error': joinForm.get('password')?.invalid && joinForm.get('password')?.touched}"
+                    />
+                    <span class="bar"></span>
+                </label>
+
+                <div *ngIf="joinForm.get('password')?.invalid && joinForm.get('password')?.touched" class="error">
+                    <span *ngIf="joinForm.get('password')?.errors?.['required']">Password is required.</span>
+                    <span *ngIf="joinForm.get('password')?.errors?.['minlength']">Password must be at least 6 characters.</span>
+                    <span *ngIf="joinForm.get('password')?.errors?.['passwordNumber']">Password must have a Number</span><br>
+                    <span *ngIf="joinForm.get('password')?.errors?.['passwordSpecial']">Password must have a Special Character</span><br>
+                    <span *ngIf="joinForm.get('password')?.errors?.['passwordUppercase']">Password must have an Uppercase </span><br>
+                </div>
+                <button type="submit" [disabled]="joinForm.invalid" class="buttonNext">Next</button>
+            </form>
+
+            <!-- FORMULARIO DE REGISTRO - SEGUNDA PARTE -->
+            <form [formGroup]="joinForm2" class="FirstFormJoin" *ngIf="paramValue === 'join' && firstPartOfForm === 'secondPart'" (ngSubmit)="sendHalfForm()">
+                <label for="nickName">NickName:
+                    <input type="text" id="nickName" formControlName="nickName" placeholder="NickName..."/>
+                </label>
+                
+                <div *ngIf="joinForm2.get('nickName')?.invalid && joinForm2.get('nickName')?.touched" class="error">
+                    <span *ngIf="joinForm2.get('nickName')?.errors?.['required']">NickName is required.</span>
+                    <span *ngIf="joinForm2.get('nickName')?.errors?.['nicknameInUse']">This nickname is already taken.</span>
+                </div>
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Select a date</mat-label>
+                    <input matInput [matDatepicker]="picker" formControlName="date" />
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+
+                <div *ngIf="joinForm2.get('date')?.invalid && joinForm2.get('date')?.touched" class="error">
+                    <span *ngIf="joinForm2.get('date')?.errors?.['required']">Date is required.</span>
+                </div>
+
+                <button type="submit" [disabled]="joinForm2.invalid" class="buttonNext">Continue</button>
+            </form>
+
+            <!-- FORMULARIO DE LOGIN -->
+            <form [formGroup]="loginForm" class="FirstFormLogin" *ngIf="paramValue === 'login'" (ngSubmit)="InitSesion()">
+                <label for="loginEmail" [ngClass]="{
+                    'error': loginForm.errors?.['invalidCredentials'] || (loginForm.get('email')?.invalid && loginForm.get('email')?.touched)
+                }">Email:
+                    <input type="email" id="loginEmail" formControlName="email" placeholder="Email..."/>
+                </label>
+                
+                <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched" class="error">
+                    <span *ngIf="loginForm.get('email')?.errors?.['required']">Email is required.</span>
+                    <span *ngIf="loginForm.get('email')?.errors?.['email']">Invalid email format.</span>
+                </div>
+
+                <label for="loginPassword" [ngClass]="{
+                    'error': loginForm.errors?.['invalidCredentials'] || (loginForm.get('password')?.invalid && loginForm.get('password')?.touched)
+                }">Password:
+                    <input type="password" id="loginPassword" formControlName="password" placeholder="Password..."/>
+                    <span class="bar"></span>
+                </label>
+                
+                <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" class="error">
+                    <span *ngIf="loginForm.get('password')?.errors?.['required']">Password is required.</span>
+                </div>
+                
+                <!-- Mensajes de error del formulario -->
+                <div *ngIf="loginForm.errors?.['invalidCredentials']" class="error">
+                    Email o contraseña incorrectos.
+                </div>
+
+                <div *ngIf="loginForm.errors?.['tooManyRequests']" class="error">
+                    Demasiados intentos. Intenta más tarde.
+                </div>
+
+                <div *ngIf="loginForm.errors?.['loginError']" class="error">
+                    Error al iniciar sesión. Intenta nuevamente.
+                </div>
+
+                <label for="keepMeChecked" class="keepMeCheckedLabel">
+                    <input type="checkbox" id="keepMeChecked" formControlName="keepMeChecked" class="checkedButton"/>
+                    <p>Keep me Logged in</p>
+                </label>
+
+                <button type="submit" [disabled]="loginForm.invalid" class="buttonNext">Login</button>
+            </form>
+            
+            <div [ngSwitch]="paramValue">
+                <div class="buttonChangeContainer"  *ngSwitchCase="'join'">
+                    <p class="questionText">Already a member?</p>
+                    <div class="switchButtonContainer" [ngClass]="{'login-active': paramValue === 'login'}"> 
+                        <p>JOIN</p>
+                        <label class="buttonParamValueChange" (click)="toggleParamValue()">
+                            <div class="ballInsideParamValueChange"></div>  
+                        </label>
+                        <p>LOGIN</p>
+                    </div>  
+                </div>
+                <div class="buttonChangeContainer2"  *ngSwitchCase="'login'">
+                    <p class="questionText2">Not a member yet?</p>
+                    <div class="switchButtonContainer2" [ngClass]="{'join-active': paramValue === 'join'}">
+                        <p>JOIN</p>
+                        <label class="buttonParamValueChange2" (click)="toggleParamValue()">
+                            <div class="ballInsideParamValueChange2"></div>  
+                        </label>
+                        <p>LOGIN</p>
+                    </div>  
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
